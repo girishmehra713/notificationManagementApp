@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">LoginSignupUI</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">LOGIN</string>
+    <string name="email_mobile">EMAIL/MOBILE</string>
+    <string name="password">PASSWORD</string>
+    <string name="remember_me">REMEMBER ME</string>
+    <string name="signin">SignIn</string>
+    <string name="don_t_have_an_account">Don\'t have an Account?</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="user_name">NAME</string>
+    <string name="email_mobile_text">EMAIL/MOBILE</string>
+    <string name="password_text">PASSWORD</string>
+    <string name="agree_to_out_terms_amp_conditions"><![CDATA[Agree to Out Terms & Conditions]]></string>
+    <string name="sign_up_button">Signup</string>
+    <string name="already_have_an_account">Already have an Account?</string>
+    <string name="sign_in_button">SIGN IN</string>
+    <string name="mobile_number">MOBILE</string>
+    <string name="secret_code">Secret Code</string>
+    <string name="admin_heading">ADMIN</string>
+    <string name="userHeading">USER</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_secretcode">This secret code is invalid</string>
+    <string name="error_invalid_password">Password too short or does not match</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="phone_number_invalid">Please Enter a Valid Mobile Number !</string>
+</resources>
