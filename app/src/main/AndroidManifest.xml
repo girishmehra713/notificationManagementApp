@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserChatActivity"></activity>
+        <activity android:name=".AdminChatActivity"></activity>
+        <activity android:name=".UserChatActivity" />
         <activity android:name=".PhoneVerified" />
         <activity android:name=".PhoneAuthentication" />
         <activity android:name=".AdminSignupActivity" />

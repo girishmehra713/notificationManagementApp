@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity{
 
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity{
     private ImageButton signin;
     private Button signup;
     private FirebaseAuth mAuth;
+    private String userRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +96,27 @@ public class LoginActivity extends AppCompatActivity{
                     Log.d("FlashChat","Sign in Failed:" + task.getException());
                     showErrorMethod("Please Enter Valid Credentials!");
                 }else{
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        String uid = user.getUid();
+                        if(!uid.equals("95SXwZNvQwS4fSQV4o7EPUEPe6J3")){
+                            userRole = "user";
+                        }
+                        else{
+                            userRole = "admin";
+                        }
 
-                    Intent intent = new Intent(LoginActivity.this,UserChatActivity.class);
-                    finish();
-                    startActivity(intent);
+                    }
+                    if(userRole.equals("user")){
+                        Intent intent = new Intent(LoginActivity.this,UserChatActivity.class);
+                        finish();
+                        startActivity(intent);
+                    }
+                    else if(userRole.equals("admin")){
+                        Intent intent = new Intent(LoginActivity.this,AdminChatActivity.class);
+                        finish();
+                        startActivity(intent);
+                    }
                 }
             }
         });
