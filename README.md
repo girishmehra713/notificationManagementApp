@@ -12,4 +12,5 @@ These notifications Are only Received to the Admin That is the HOD and the hod c
 This app requires little more modifications we will cover it soon and  then we wil publish it soon and will provide the APK for the application .If you Want to see the app The video link is given below.
 
 
-Link To the Video IS:https://drive.google.com/open?id=1ZXsjzn2zJxxpLqfU06FhDPNEXKVLk1al
+Link To the Video IS:https://drive.google.com/open?id=1zd_ftus6mJnxrvvkzw_SieX5QBGsOOe7
+Link to the Video 2:https://drive.google.com/open?id=1SZ4fxiazS6GuJ_hqGerdkBmZVcOEFUuC
