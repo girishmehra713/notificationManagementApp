@@ -2,6 +2,7 @@ package com.example.notificationManagement.loginsignupui;
 
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,13 +34,14 @@ public class LoginActivity extends AppCompatActivity{
     private Button signup;
     private FirebaseAuth mAuth;
     private String userRole;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        mProgressDialog = new ProgressDialog(this);
         email = (EditText)findViewById(R.id.email);
         password = (EditText)findViewById(R.id.password);
 
@@ -52,7 +54,7 @@ public class LoginActivity extends AppCompatActivity{
         signin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this,"LogIn in Progress..",Toast.LENGTH_LONG).show();
+                //Toast.makeText(LoginActivity.this,"LogIn in Progress..",Toast.LENGTH_LONG).show();
                 attemptLogin();
             }
         });
@@ -85,8 +87,12 @@ public class LoginActivity extends AppCompatActivity{
 
         String emailInput = email.getText().toString();
         String passwordInput = password.getText().toString();
-        if(emailInput == ""||passwordInput== "")return;
-        Toast.makeText(this,"Login in Progress",Toast.LENGTH_SHORT).show();
+        if(emailInput.equals("")||passwordInput.equals("")){ showErrorMethod("Please Enter the Credentials To Login");}
+        mProgressDialog.setTitle("Log In");
+        mProgressDialog.setMessage("Authenticating");
+        mProgressDialog.setCanceledOnTouchOutside(true);
+        mProgressDialog.show();
+//        Toast.makeText(this,"Login in Progress",Toast.LENGTH_SHORT).show();
         // TODO: Use FirebaseAuth to sign in with email & password
         mAuth.signInWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -95,28 +101,32 @@ public class LoginActivity extends AppCompatActivity{
                 if(!task.isSuccessful()){
                     Log.d("FlashChat","Sign in Failed:" + task.getException());
                     showErrorMethod("Please Enter Valid Credentials!");
+                    mProgressDialog.dismiss();
                 }else{
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    if (user != null) {
-                        String uid = user.getUid();
-                        if(!uid.equals("95SXwZNvQwS4fSQV4o7EPUEPe6J3")){
-                            userRole = "user";
-                        }
-                        else{
-                            userRole = "admin";
-                        }
 
-                    }
-                    if(userRole.equals("user")){
-                        Intent intent = new Intent(LoginActivity.this,UserChatActivity.class);
-                        finish();
-                        startActivity(intent);
-                    }
-                    else if(userRole.equals("admin")){
-                        Intent intent = new Intent(LoginActivity.this,AdminChatActivity.class);
-                        finish();
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(LoginActivity.this,UserChatActivity.class);
+                    finish();
+                    startActivity(intent);
+                    mProgressDialog.dismiss();
+//                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                    if (user != null) {
+//                        String uid = user.getUid();
+//                        if(!uid.equals("95SXwZNvQwS4fSQV4o7EPUEPe6J3")){
+//                            userRole = "user";
+//                        }
+//                        else{
+//                            userRole = "admin";
+//                        }
+//
+//                    }
+//                    if(userRole.equals("user")){
+//                        Intent intent = new Intent(LoginActivity.this,UserChatActivity.class);
+//                        finish();
+//                        startActivity(intent);
+//                    }
+//                    else if(userRole.equals("admin")){
+
+
                 }
             }
         });

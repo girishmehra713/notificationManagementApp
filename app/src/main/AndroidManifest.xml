@@ -6,19 +6,20 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_foreground"
         android:label="login"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminChatActivity"></activity>
+        <activity android:name=".Signup_or_SignIn"></activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".UserChatActivity" />
         <activity android:name=".PhoneVerified" />
         <activity android:name=".PhoneAuthentication" />
-        <activity android:name=".AdminSignupActivity" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />

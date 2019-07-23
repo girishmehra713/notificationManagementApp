@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#38598B</color>
+    <color name="colorPrimaryDark">#113F67</color>
+    <color name="colorAccent">#a2a8d3</color>
+    <color name="black">#000000</color>
+    <color name="green">#27AE60</color>
+    <color name="dark_blue">#0b046d</color>
+    <color name="white">#ffffff</color>
+    <color name="light_green">#50d050</color>
+    <color name="light_blue">#e7eaf6</color>
+    <color name="splashcolor">#74c1c9</color>
+    <color name="white_background">#ffffff</color>
+    <color name="background">#00c853</color>
+    <color name="title_background">#00796b</color>
+    <color name="real_splash_color">#69f0ae</color>
+    <color name="gray_color">#e0e0e0</color>
+    <color name="drawable_selector">#c8e6c9</color>
+    <color name="startcolor">#ff7043</color>
+    <color name="endcolor">#26c6da</color>
+    <color name="text_button_color">#6a1b9a</color>
+    <color name="title_start_color">#aed581</color>
+    <color name="title_end_color">#fff176</color>
+    <color name="backgroundview1">#fff59d</color>
+    <color name="backgroundview2">#80deea</color>
+    <color name="backgroundview3">#ffcc80</color>
+    <color name="purple_white">#e6e6fa</color>
 </resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:id="@+id/activity_home_layout"
+
+    tools:context=".HomeActivity">
+
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/screen_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <Button
+        android:id="@+id/next_button"
+        style="@android:style/Widget.Material.Button.Small"
+        android:layout_width="85dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonshapes"
+        android:drawableRight="@drawable/forward_next"
+
+
+
+        android:text="NEXT"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toEndOf="@+id/prev_button" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="108dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/next_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.951"
+        app:tabBackground="@drawable/drawable_selected"
+        app:tabIndicatorHeight="0dp">
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <Button
+        android:id="@+id/prev_button"
+        android:layout_width="83dp"
+        android:layout_height="47dp"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonshapes"
+        android:drawableTint="@color/splashcolor"
+        android:text="SKIP"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/getstarted_button"
+
+
+        android:layout_width="165dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="116dp"
+        android:background="@drawable/getstarted_button"
+        android:text="GET STARTED"
+        android:textColor="@color/white_background"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screen_pager"
+        app:layout_constraintVertical_bias="0.7" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
                 android:radius="100dp"/>
 
 
-            <solid android:color="#fbd1b7" />
+            <solid android:color="@color/colorPrimary" />
 
         </shape>
     </item>

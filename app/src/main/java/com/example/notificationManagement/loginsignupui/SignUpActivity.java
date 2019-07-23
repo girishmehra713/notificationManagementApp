@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -35,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity{
     private EditText email,password,name,phone;
     private CheckBox checkBox;
     private ImageButton signup;
+    private ProgressDialog progressDialog;
     private Button signin;
     // Firebase instance variables
     private FirebaseAuth mAuth;
@@ -51,6 +55,8 @@ public class SignUpActivity extends AppCompatActivity{
         checkBox = (CheckBox)findViewById(R.id.checkboxUser);
 
         signup =(ImageButton)findViewById(R.id.signupUser);
+
+        progressDialog = new ProgressDialog(this);
 
         signin = (Button) findViewById(R.id.signinUser);
 
@@ -69,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity{
         signup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(SignUpActivity.this,"Registering User...",Toast.LENGTH_LONG).show();
+                //Toast.makeText(SignUpActivity.this,"Registering User...",Toast.LENGTH_LONG).show();
                 signUp();
             }
         });
@@ -144,6 +150,7 @@ public class SignUpActivity extends AppCompatActivity{
             // TODO: Call create FirebaseUser() here
             createFirebaseUser();
 
+
         }
 
     }
@@ -162,6 +169,10 @@ public class SignUpActivity extends AppCompatActivity{
         String emailInput = email.getText().toString();
         String passwordInput = password.getText().toString();
         final String phoneInput = "+91" + phone.getText().toString();
+        progressDialog.setTitle("Creating Account");
+        progressDialog.setMessage("Registering");
+        progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.show();
         mAuth.createUserWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -169,14 +180,18 @@ public class SignUpActivity extends AppCompatActivity{
                 if(!task.isSuccessful()) {
                     Log.d("Notification","create user completion failed "+ task.getException());
                     showErrorMethod("Registration Failed!! Please enter the valid Credentials");
+                    progressDialog.dismiss();
                 }
                 else{
+
                     saveDisplayName();
                     Intent intent = new Intent(SignUpActivity.this,PhoneAuthentication.class);
                     intent.putExtra("phonenumber",phoneInput);
                     finish();
 
                     startActivity(intent);
+                    progressDialog.dismiss();
+
                 }
             }
         });

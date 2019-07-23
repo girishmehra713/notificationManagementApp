@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LoginSignupUI</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Sign Out</string>
     <string name="login">LOGIN</string>
     <string name="email_mobile">EMAIL/MOBILE</string>
     <string name="password">PASSWORD</string>
@@ -19,7 +19,7 @@
     <string name="mobile_number">MOBILE</string>
     <string name="secret_code">Secret Code</string>
     <string name="admin_heading">ADMIN</string>
-    <string name="userHeading">USER</string>
+    <string name="userHeading">SIGNUP</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_secretcode">This secret code is invalid</string>
     <string name="error_invalid_password">Password too short or does not match</string>
